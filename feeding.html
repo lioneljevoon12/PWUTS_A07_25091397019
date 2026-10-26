@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feeding Log Spreadsheet Matrix – MeowNesa Admin | Jaga Satwa UNESA</title>
+  <link rel="icon" type="image/png" href="brand/head.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/feeding.css">
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <div class="sidebar-brand-box">
+          <a href="index.html">
+            <img src="brand/wordmark-white.png" alt="MeowNesa" class="sidebar-logo" onerror="this.src='brand/wordmark.png'">
+          </a>
+          <span style="color: rgba(255,255,255,0.3); font-weight: 700; font-size: 0.75rem;">&bull;</span>
+          <span class="badge-admin-tag">ADMIN</span>
+        </div>
+      </div>
+
+      <div class="sidebar-seal">
+        <img src="brand/head-white.png" alt="Jaga Satwa" onerror="this.src='brand/head.png'">
+        <span>Komunitas Jaga Satwa UNESA</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="index.html" class="sidebar-link">
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="cats.html" class="sidebar-link">
+            <span>Data Populasi Kucing</span>
+            <span class="sidebar-pill">8</span>
+          </a>
+        </li>
+        <li>
+          <a href="feeding.html" class="sidebar-link active">
+            <span>Feeding Log Harian</span>
+            <span class="sidebar-pill">Aktif</span>
+          </a>
+        </li>
+        <li>
+          <a href="health.html" class="sidebar-link">
+            <span>Rekam Medis &amp; Klinik</span>
+          </a>
+        </li>
+        <li>
+          <a href="adoptions.html" class="sidebar-link">
+            <span>Screening Adopsi</span>
+            <span class="sidebar-pill sun">2 Baru</span>
+          </a>
+        </li>
+        <li>
+          <a href="monitoring.html" class="sidebar-link">
+            <span>Monitoring Pasca-Adopsi</span>
+            <span class="sidebar-pill coral">1 Alert</span>
+          </a>
+        </li>
+        <li>
+          <a href="cms.html" class="sidebar-link">
+            <span>CMS Artikel &amp; Edukasi</span>
+          </a>
+        </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">LJ</div>
+      <div class="user-info">
+        <h5>Lionel Jevon</h5>
+        <p>25091397019 - Admin Medis</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button type="button" class="topbar-toggle" id="sidebarToggle" aria-label="Toggle Menu">&equiv;</button>
+        <div>
+          <div class="topbar-breadcrumb">
+            <span>MeowNesa Admin</span>
+            <span>/</span>
+            <span style="color: var(--magenta); font-weight: 700;">Matriks Pakan Zona Kampus &amp; Sinkronisasi</span>
+          </div>
+          <h1 class="topbar-title">Feeding Log (Sistem Spreadsheet Terpadu)</h1>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="topbar-date-pill">
+          <span style="color: var(--magenta);">&bull;</span>
+          <span id="liveDateText">-</span>
+        </div>
+        <button type="button" class="topbar-notif-btn" id="notifBellBtn" title="Notifikasi">
+          &#128276;
+          <span style="position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--coral);"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="banner-welcome" style="margin-bottom: 24px;">
+        <div>
+          <div class="banner-badge">
+            <span class="dot-pulse"></span>
+            <span>Sistem Terintegrasi Google Spreadsheet &amp; Excel Jaga Satwa</span>
+          </div>
+          <h2 class="banner-title">Matriks Feeding Log Harian per Zona Fakultas</h2>
+          <p class="banner-desc">
+            Format sesuai template resmi spreadsheet komunitas: profil identitas anabul, status pakan harian (Done / Pending), serta pembagian shift relawan lapangan.
+          </p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button type="button" class="btn-magenta" id="btnOpenAddFeeding">+ Catat Jadwal Baru</button>
+          <button type="button" class="btn-white-outline" id="btnMarkAllDone" style="background: rgba(255,255,255,0.2); color: #fff; border-color: rgba(255,255,255,0.4);">&check; Tandai Semua Done</button>
+        </div>
+      </div>
+
+      <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+        <div class="kpi-card">
+          <span class="kpi-label">Bulan Aktif</span>
+          <div class="kpi-val" style="font-size: 1.3rem;">OKTOBER 2026</div>
+          <span class="kpi-sub">Semester Gasal</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Status Hari Ini (04 Okt)</span>
+          <div class="kpi-val" style="color: var(--emerald);">4/5 Kucing Done</div>
+          <span class="kpi-sub">80% Tercapai</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Shift Berjalan</span>
+          <div class="kpi-val" style="font-size: 1.3rem;">Sore (16:30 WIB)</div>
+          <span class="kpi-sub">Zona Prioritas</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Relawan Bertugas</span>
+          <div class="kpi-val" style="font-size: 1.2rem; color: var(--magenta);">Sarah &amp; Dimas</div>
+          <span class="kpi-sub magenta">PIC Lapangan</span>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--ink);">Sheet Zona Aktif:</span>
+            <span id="activeZoneLabel" style="background-color: var(--magenta); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 6px;">FISIPOL perbatasan FEB</span>
+          </div>
+
+          <div style="display: flex; gap: 6px;">
+            <button type="button" class="btn-view active sheet-tab-btn">FISIPOL perbatasan FEB</button>
+            <button type="button" class="btn-view sheet-tab-btn">Fakultas Teknik</button>
+            <button type="button" class="btn-view sheet-tab-btn">Danau &amp; Rektorat Liwet</button>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="sheet-table">
+            <thead>
+              <tr>
+                <th style="width: 130px; background-color: var(--ink);">NAMA</th>
+                <th>CELLI</th>
+                <th>BLEKI</th>
+                <th>MISO</th>
+                <th>LALA</th>
+                <th>BOBY</th>
+                <th style="width: 90px;">AKSI</th>
+              </tr>
+              <tr style="background-color: #faf5f8; font-size: 0.72rem; color: var(--ink-muted);">
+                <td>FOTO &amp; CIRI</td>
+                <td>
+                  <img src="kucing/KTT-01.jpg" alt="Celli" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover; margin: 0 auto 4px;">
+                  <div>Betina &bull; Steril</div>
+                </td>
+                <td>
+                  <img src="kucing/KTT-04.jpg" alt="Bleki" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover; margin: 0 auto 4px;">
+                  <div>Jantan &bull; Steril</div>
+                </td>
+                <td>
+                  <img src="kucing/KTT-03.jpg" alt="Miso" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover; margin: 0 auto 4px;">
+                  <div>Betina &bull; Steril</div>
+                </td>
+                <td>
+                  <img src="kucing/KTT-02.jpg" alt="Lala" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover; margin: 0 auto 4px;">
+                  <div>Betina &bull; Steril</div>
+                </td>
+                <td>
+                  <img src="kucing/KTT-05.jpg" alt="Boby" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover; margin: 0 auto 4px;">
+                  <div>Jantan &bull; Steril</div>
+                </td>
+                <td>Kontrol</td>
+              </tr>
+            </thead>
+            <tbody id="feedingTableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modalEditFeeding" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 560px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px; max-height: 90vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <h3 id="modalFeedFormTitle" style="font-family: var(--font-display); font-size: 1.3rem; color: var(--ink);">Catat Jadwal Feeding Baru</h3>
+        <button type="button" id="closeModalEditFeed" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <form id="formEditFeeding" novalidate style="display: flex; flex-direction: column; gap: 12px; font-size: 0.82rem;">
+        <input type="hidden" id="editFeedId">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Tanggal (DD/MM/YYYY) *</label>
+            <input type="text" id="editFeedDate" class="filter-input" style="width: 100%;" placeholder="Contoh: 05/10/2026">
+            <div class="field-error" id="errFeedDate"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Relawan Bertugas *</label>
+            <input type="text" id="editFeedVolunteer" class="filter-input" style="width: 100%;" placeholder="Contoh: Sarah &amp; Dimas">
+            <div class="field-error" id="errFeedVolunteer"></div>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-weight: 700; display: block; margin-bottom: 6px;">Status Pemberian Pakan per Anabul:</label>
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+            <div>
+              <span style="font-size: 0.72rem; display: block; font-weight: 700; color: var(--ink-muted);">Celli</span>
+              <select id="editFeedCelli" class="filter-select" style="width: 100%; padding: 4px;">
+                <option value="done">Done</option>
+                <option value="pending">Belum</option>
+              </select>
+            </div>
+            <div>
+              <span style="font-size: 0.72rem; display: block; font-weight: 700; color: var(--ink-muted);">Bleki</span>
+              <select id="editFeedBleki" class="filter-select" style="width: 100%; padding: 4px;">
+                <option value="done">Done</option>
+                <option value="pending">Belum</option>
+              </select>
+            </div>
+            <div>
+              <span style="font-size: 0.72rem; display: block; font-weight: 700; color: var(--ink-muted);">Miso</span>
+              <select id="editFeedMiso" class="filter-select" style="width: 100%; padding: 4px;">
+                <option value="done">Done</option>
+                <option value="pending">Belum</option>
+              </select>
+            </div>
+            <div>
+              <span style="font-size: 0.72rem; display: block; font-weight: 700; color: var(--ink-muted);">Lala</span>
+              <select id="editFeedLala" class="filter-select" style="width: 100%; padding: 4px;">
+                <option value="done">Done</option>
+                <option value="pending">Belum</option>
+              </select>
+            </div>
+            <div>
+              <span style="font-size: 0.72rem; display: block; font-weight: 700; color: var(--ink-muted);">Boby</span>
+              <select id="editFeedBoby" class="filter-select" style="width: 100%; padding: 4px;">
+                <option value="done">Done</option>
+                <option value="pending">Belum</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-weight: 700; display: block; margin-bottom: 4px;">Catatan Lapangan &amp; Pakan *</label>
+          <textarea id="editFeedNotes" class="filter-input" rows="2" style="width: 100%;" placeholder="Catatan nafsu makan, kondisi fisik, cuaca..."></textarea>
+          <div class="field-error" id="errFeedNotes"></div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px;">
+          <button type="button" class="btn-white-outline" id="btnCancelEditFeed">Batal</button>
+          <button type="submit" class="btn-magenta">Simpan Catatan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data-feeding.js"></script>
+  <script src="js/admin-nav.js"></script>
+  <script src="js/feeding.js"></script>
+
+</body>
+</html>

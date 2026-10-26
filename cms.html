@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Artikel &amp; Edukasi – MeowNesa Admin | Jaga Satwa UNESA</title>
+  <link rel="icon" type="image/png" href="brand/head.png">
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <div class="sidebar-brand-box">
+          <a href="index.html">
+            <img src="brand/wordmark-white.png" alt="MeowNesa" class="sidebar-logo" onerror="this.src='brand/wordmark.png'">
+          </a>
+          <span style="color: rgba(255,255,255,0.3); font-weight: 700; font-size: 0.75rem;">&bull;</span>
+          <span class="badge-admin-tag">ADMIN</span>
+        </div>
+      </div>
+
+      <div class="sidebar-seal">
+        <img src="brand/head-white.png" alt="Jaga Satwa" onerror="this.src='brand/head.png'">
+        <span>Komunitas Jaga Satwa UNESA</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="index.html" class="sidebar-link">
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="cats.html" class="sidebar-link">
+            <span>Data Populasi Kucing</span>
+            <span class="sidebar-pill">8</span>
+          </a>
+        </li>
+        <li>
+          <a href="feeding.html" class="sidebar-link">
+            <span>Feeding Log Harian</span>
+            <span class="sidebar-pill">Aktif</span>
+          </a>
+        </li>
+        <li>
+          <a href="health.html" class="sidebar-link">
+            <span>Rekam Medis &amp; Klinik</span>
+          </a>
+        </li>
+        <li>
+          <a href="adoptions.html" class="sidebar-link">
+            <span>Screening Adopsi</span>
+            <span class="sidebar-pill sun">2 Baru</span>
+          </a>
+        </li>
+        <li>
+          <a href="monitoring.html" class="sidebar-link">
+            <span>Monitoring Pasca-Adopsi</span>
+            <span class="sidebar-pill coral">1 Alert</span>
+          </a>
+        </li>
+        <li>
+          <a href="cms.html" class="sidebar-link active">
+            <span>CMS Artikel &amp; Edukasi</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">LJ</div>
+      <div class="user-info">
+        <h5>Lionel Jevon</h5>
+        <p>25091397019 - Admin Medis</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button type="button" class="topbar-toggle" id="sidebarToggle" aria-label="Toggle Menu">&equiv;</button>
+        <div>
+          <div class="topbar-breadcrumb">
+            <span>MeowNesa Admin</span>
+            <span>/</span>
+            <span style="color: var(--magenta); font-weight: 700;">Manajemen Publikasi Edukasi Satwa</span>
+          </div>
+          <h1 class="topbar-title">CMS Artikel &amp; Edukasi</h1>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="topbar-date-pill">
+          <span style="color: var(--magenta);">&bull;</span>
+          <span id="liveDateText">-</span>
+        </div>
+        <button type="button" class="topbar-notif-btn" id="notifBellBtn" title="Notifikasi">
+          &#128276;
+          <span style="position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--coral);"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="banner-welcome" style="margin-bottom: 24px;">
+        <div>
+          <div class="banner-badge">
+            <span class="dot-pulse"></span>
+            <span>Pusat Literasi Kesejahteraan Hewan</span>
+          </div>
+          <h2 class="banner-title">Kelola Konten Artikel &amp; Panduan Komunitas</h2>
+          <p class="banner-desc">
+            Publikasikan tulisan edukasi penanganan kucing liar, panduan sterilisasi, dan dokumentasi kegiatan bakti sosial satwa UNESA.
+          </p>
+        </div>
+        <button type="button" class="btn-magenta" id="btnOpenAddArt">+ Tulis Artikel Baru</button>
+      </div>
+
+      <div class="panel-card">
+        <div style="overflow-x: auto;">
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>Judul Artikel</th>
+                <th>Kategori</th>
+                <th>Tanggal Terbit</th>
+                <th>Penulis</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="cmsTableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modalViewArticle" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 540px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <div>
+          <span id="viewArtCategory" class="badge-status normal" style="font-size: 0.75rem;">-</span>
+          <h3 id="viewArtTitle" style="font-family: var(--font-display); font-size: 1.35rem; color: var(--ink); margin-top: 6px;">Judul Artikel</h3>
+        </div>
+        <button type="button" id="closeModalViewArt" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <div style="display: flex; gap: 16px; font-size: 0.78rem; color: var(--ink-muted); margin-bottom: 14px;">
+        <span>Penulis: <strong id="viewArtAuthor" style="color: var(--ink);">-</strong></span>
+        <span>Tanggal: <strong id="viewArtDate" style="color: var(--ink);">-</strong></span>
+        <span>Status: <strong id="viewArtStatus" style="color: var(--emerald);">-</strong></span>
+      </div>
+
+      <div style="background-color: var(--cream); padding: 14px; border-radius: var(--radius-md); font-size: 0.85rem; line-height: 1.6; margin-bottom: 18px;">
+        <p id="viewArtContent" style="color: var(--ink);">-</p>
+      </div>
+
+      <div style="text-align: right;">
+        <button type="button" class="btn-magenta" id="btnCloseModalViewArt">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalEditArticle" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 580px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <h3 id="modalArtFormTitle" style="font-family: var(--font-display); font-size: 1.3rem; color: var(--ink);">Formulir Artikel &amp; Edukasi</h3>
+        <button type="button" id="closeModalEditArt" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <form id="formEditArticle" novalidate style="display: flex; flex-direction: column; gap: 12px; font-size: 0.82rem;">
+        <input type="hidden" id="editArtId">
+
+        <div>
+          <label style="font-weight: 700; display: block; margin-bottom: 4px;">Judul Artikel *</label>
+          <input type="text" id="editArtTitle" class="filter-input" style="width: 100%; padding: 9px 12px;">
+          <div class="field-error" id="errArtTitle"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Kategori *</label>
+            <select id="editArtCategory" class="filter-select" style="width: 100%;">
+              <option value="Kesehatan Satwa">Kesehatan Satwa</option>
+              <option value="Operasional">Operasional</option>
+              <option value="Panduan Adopsi">Panduan Adopsi</option>
+              <option value="Program TNR">Program TNR</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Status Publikasi *</label>
+            <select id="editArtStatus" class="filter-select" style="width: 100%;">
+              <option value="Terbit">Terbit</option>
+              <option value="Draft">Draft</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Tanggal Terbit *</label>
+            <input type="date" id="editArtDate" class="filter-input" style="width: 100%; padding: 9px 12px;">
+            <div class="field-error" id="errArtDate"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Penulis / Divisi *</label>
+            <input type="text" id="editArtAuthor" class="filter-input" style="width: 100%; padding: 9px 12px;">
+            <div class="field-error" id="errArtAuthor"></div>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-weight: 700; display: block; margin-bottom: 4px;">Konten Singkat / Ringkasan *</label>
+          <textarea id="editArtContent" class="filter-input" rows="4" style="width: 100%; line-height: 1.5;"></textarea>
+          <div class="field-error" id="errArtContent"></div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px;">
+          <button type="button" class="btn-white-outline" id="btnCancelEditArt">Batal</button>
+          <button type="submit" class="btn-magenta">Simpan Artikel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data-cms.js"></script>
+  <script src="js/admin-nav.js"></script>
+  <script src="js/cms.js"></script>
+
+</body>
+</html>

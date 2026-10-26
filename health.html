@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekam Medis &amp; Klinik – MeowNesa Admin | Jaga Satwa UNESA</title>
+  <link rel="icon" type="image/png" href="brand/head.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/health.css">
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <div class="sidebar-brand-box">
+          <a href="index.html">
+            <img src="brand/wordmark-white.png" alt="MeowNesa" class="sidebar-logo" onerror="this.src='brand/wordmark.png'">
+          </a>
+          <span style="color: rgba(255,255,255,0.3); font-weight: 700; font-size: 0.75rem;">&bull;</span>
+          <span class="badge-admin-tag">ADMIN</span>
+        </div>
+      </div>
+
+      <div class="sidebar-seal">
+        <img src="brand/head-white.png" alt="Jaga Satwa" onerror="this.src='brand/head.png'">
+        <span>Komunitas Jaga Satwa UNESA</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="index.html" class="sidebar-link">
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="cats.html" class="sidebar-link">
+            <span>Data Populasi Kucing</span>
+            <span class="sidebar-pill">8</span>
+          </a>
+        </li>
+        <li>
+          <a href="feeding.html" class="sidebar-link">
+            <span>Feeding Log Harian</span>
+            <span class="sidebar-pill">Aktif</span>
+          </a>
+        </li>
+        <li>
+          <a href="health.html" class="sidebar-link active">
+            <span>Rekam Medis &amp; Klinik</span>
+          </a>
+        </li>
+        <li>
+          <a href="adoptions.html" class="sidebar-link">
+            <span>Screening Adopsi</span>
+            <span class="sidebar-pill sun">2 Baru</span>
+          </a>
+        </li>
+        <li>
+          <a href="monitoring.html" class="sidebar-link">
+            <span>Monitoring Pasca-Adopsi</span>
+            <span class="sidebar-pill coral">1 Alert</span>
+          </a>
+        </li>
+        <li>
+          <a href="cms.html" class="sidebar-link">
+            <span>CMS Artikel &amp; Edukasi</span>
+          </a>
+        </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">LJ</div>
+      <div class="user-info">
+        <h5>Lionel Jevon</h5>
+        <p>25091397019 - Admin Medis</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button type="button" class="topbar-toggle" id="sidebarToggle" aria-label="Toggle Menu">&equiv;</button>
+        <div>
+          <div class="topbar-breadcrumb">
+            <span>MeowNesa Admin</span>
+            <span>/</span>
+            <span style="color: var(--magenta); font-weight: 700;">Pelayanan Kesehatan &amp; Klinik Mitra</span>
+          </div>
+          <h1 class="topbar-title">Rekam Medis &amp; Klinik</h1>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="topbar-date-pill">
+          <span style="color: var(--magenta);">&bull;</span>
+          <span id="liveDateText">-</span>
+        </div>
+        <button type="button" class="topbar-notif-btn" id="notifBellBtn" title="Notifikasi">
+          &#128276;
+          <span style="position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--coral);"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="banner-welcome" style="margin-bottom: 24px;">
+        <div>
+          <div class="banner-badge">
+            <span class="dot-pulse"></span>
+            <span>Klinik Mitra Nusantara Vet &amp; Satwa Sehat</span>
+          </div>
+          <h2 class="banner-title">Rekam Medis &amp; Tindakan Sterilisasi</h2>
+          <p class="banner-desc">
+            Pencatatan riwayat sterilisasi bedah, vaksinasi tahunan, dan pengobatan anabul terluka di lingkungan kampus UNESA.
+          </p>
+        </div>
+        <button type="button" class="btn-magenta" id="btnOpenAddHealth">+ Catat Tindakan Baru</button>
+      </div>
+
+      <div class="panel-card">
+        <div class="filter-bar">
+          <input type="text" id="searchHealth" class="filter-input" placeholder="Cari nama kucing, klinik, diagnosa...">
+          
+          <select id="filterAction" class="filter-select">
+            <option value="">Semua Tindakan</option>
+            <option value="Sterilisasi">Sterilisasi</option>
+            <option value="Vaksinasi">Vaksinasi Tricat</option>
+            <option value="Rawat Luka">Rawat Luka</option>
+            <option value="Obat Cacing">Obat Cacing &amp; Kutu</option>
+            <option value="Pemeriksaan">Pemeriksaan Gigi/Umum</option>
+          </select>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>ID Rekam</th>
+                <th>Tanggal</th>
+                <th>Kucing</th>
+                <th>Jenis Tindakan</th>
+                <th>Klinik Mitra</th>
+                <th>Status Pemulihan</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="healthTableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modalHealth" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 540px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <div>
+          <span id="modalHealthId" style="font-size: 0.78rem; font-weight: 800; background: var(--magenta-50); color: var(--magenta); padding: 2px 8px; border-radius: 4px;">MED-1</span>
+          <h3 id="modalHealthCat" style="font-family: var(--font-display); font-size: 1.4rem; color: var(--ink); margin-top: 2px;">Nama Kucing</h3>
+        </div>
+        <button type="button" id="closeModalHealth" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.82rem; margin-bottom: 14px;">
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Tanggal Tindakan:</span>
+          <strong id="modalHealthDate">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Jenis Tindakan:</span>
+          <strong id="modalHealthAction">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Dokter Pemeriksa:</span>
+          <strong id="modalHealthDoctor">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Klinik:</span>
+          <strong id="modalHealthClinic">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Status Kondisi:</span>
+          <strong id="modalHealthStatus" style="color: var(--emerald);">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Jadwal Kontrol:</span>
+          <strong id="modalHealthControl">-</strong>
+        </div>
+      </div>
+
+      <div style="background-color: var(--cream); padding: 12px; border-radius: var(--radius-md); font-size: 0.82rem; margin-bottom: 14px;">
+        <span style="color: var(--ink-muted); font-size: 0.72rem; display: block; margin-bottom: 4px;">Catatan Klinis Dokter:</span>
+        <p id="modalHealthNotes" style="color: var(--ink); font-weight: 600;">-</p>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Biaya Tindakan:</span>
+          <strong id="modalHealthCost" style="color: var(--magenta); font-size: 1.1rem;">Rp 0</strong>
+        </div>
+        <button type="button" class="btn-magenta" id="btnCloseModalHealth">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalAddHealth" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 580px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px; max-height: 90vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <h3 id="modalHealthFormTitle" style="font-family: var(--font-display); font-size: 1.3rem; color: var(--ink);">Input Tindakan Medis Baru</h3>
+        <button type="button" id="closeAddHealth" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <form id="formAddHealth" novalidate style="display: flex; flex-direction: column; gap: 12px; font-size: 0.82rem;">
+        <input type="hidden" id="editHealthId">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Pilih Kucing *</label>
+            <select id="addCat" class="filter-select" style="width: 100%;">
+              <option value="Mochi (KTT-01)">Mochi (KTT-01)</option>
+              <option value="Milo (LWT-01)">Milo (LWT-01)</option>
+              <option value="Danau (LWT-02)">Danau (LWT-02)</option>
+              <option value="Oyen Barbar (KTT-03)">Oyen Barbar (KTT-03)</option>
+              <option value="Pak Rektor (LWT-04)">Pak Rektor (LWT-04)</option>
+              <option value="Kismis (LWT-06)">Kismis (LWT-06)</option>
+              <option value="Barokah (KTT-12)">Barokah (KTT-12)</option>
+              <option value="Ranu (KTT-13)">Ranu (KTT-13)</option>
+            </select>
+            <div class="field-error" id="errHealthCat"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Tanggal Tindakan *</label>
+            <input type="date" id="addDate" class="filter-input" style="width: 100%; padding: 8px 12px;">
+            <div class="field-error" id="errHealthDate"></div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Jenis Tindakan</label>
+            <select id="addAction" class="filter-select" style="width: 100%;">
+              <option value="Sterilisasi Betina (OH)">Sterilisasi Betina (OH)</option>
+              <option value="Sterilisasi Jantan (Kastrasi)">Sterilisasi Jantan (Kastrasi)</option>
+              <option value="Vaksinasi Tricat">Vaksinasi Tricat</option>
+              <option value="Rawat Luka Kulit">Rawat Luka Kulit</option>
+              <option value="Pemberian Obat Cacing &amp; Kutu">Pemberian Obat Cacing &amp; Kutu</option>
+              <option value="Pemeriksaan Gigi &amp; Mulut">Pemeriksaan Gigi &amp; Mulut</option>
+            </select>
+            <div class="field-error" id="errHealthAction"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Status Pemulihan</label>
+            <select id="addStatus" class="filter-select" style="width: 100%;">
+              <option value="Sembuh Total / Sehat">Sembuh Total / Sehat</option>
+              <option value="Selesai Vaksin">Selesai Vaksin</option>
+              <option value="Pemulihan Luka">Pemulihan Luka</option>
+              <option value="Tuntas Preventif">Tuntas Preventif</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Klinik Mitra *</label>
+            <input type="text" id="addClinic" class="filter-input" style="width: 100%;" value="Klinik Nusantara Vet">
+            <div class="field-error" id="errHealthClinic"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Dokter Pemeriksa *</label>
+            <input type="text" id="addDoctor" class="filter-input" style="width: 100%;" value="drh. Hendra Kurniawan">
+            <div class="field-error" id="errHealthDoctor"></div>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-weight: 700; display: block; margin-bottom: 4px;">Catatan Diagnosa / Obat *</label>
+          <textarea id="addNotes" class="filter-input" rows="2" style="width: 100%;" placeholder="Tuliskan hasil diagnosa klinis dan instruksi pengobatan..."></textarea>
+          <div class="field-error" id="errHealthNotes"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Biaya (Rp) *</label>
+            <input type="number" id="addCost" class="filter-input" style="width: 100%;" placeholder="Contoh: 150000">
+            <div class="field-error" id="errHealthCost"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Jadwal Kontrol</label>
+            <input type="text" id="addControl" class="filter-input" style="width: 100%; padding: 8px 12px;" placeholder="Contoh: 22 Sep 2027 atau -">
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px;">
+          <button type="button" class="btn-white-outline" id="btnCancelHealth">Batal</button>
+          <button type="submit" class="btn-magenta">Simpan Rekam Medis</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data-medis.js"></script>
+  <script src="js/admin-nav.js"></script>
+  <script src="js/health.js"></script>
+
+</body>
+</html>

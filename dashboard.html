@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard – MeowNesa | Jaga Satwa UNESA</title>
+  <link rel="icon" type="image/png" href="brand/head.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <div class="sidebar-brand-box">
+          <a href="index.html">
+            <img src="brand/wordmark-white.png" alt="MeowNesa" class="sidebar-logo" onerror="this.src='brand/wordmark.png'">
+          </a>
+          <span style="color: rgba(255,255,255,0.3); font-weight: 700; font-size: 0.75rem;">&bull;</span>
+          <span class="badge-admin-tag">ADMIN</span>
+        </div>
+      </div>
+
+      <div class="sidebar-seal">
+        <img src="brand/head-white.png" alt="Jaga Satwa" onerror="this.src='brand/head.png'">
+        <span>Komunitas Jaga Satwa UNESA</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="index.html" class="sidebar-link active">
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="cats.html" class="sidebar-link">
+            <span>Data Populasi Kucing</span>
+            <span class="sidebar-pill">8</span>
+          </a>
+        </li>
+        <li>
+          <a href="feeding.html" class="sidebar-link">
+            <span>Feeding Log Harian</span>
+            <span class="sidebar-pill">Aktif</span>
+          </a>
+        </li>
+        <li>
+          <a href="health.html" class="sidebar-link">
+            <span>Rekam Medis &amp; Klinik</span>
+          </a>
+        </li>
+        <li>
+          <a href="adoptions.html" class="sidebar-link">
+            <span>Screening Adopsi</span>
+            <span class="sidebar-pill sun">2 Baru</span>
+          </a>
+        </li>
+        <li>
+          <a href="monitoring.html" class="sidebar-link">
+            <span>Monitoring Pasca-Adopsi</span>
+            <span class="sidebar-pill coral">1 Alert</span>
+          </a>
+        </li>
+        <li>
+          <a href="cms.html" class="sidebar-link">
+            <span>CMS Artikel &amp; Edukasi</span>
+          </a>
+        </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">LJ</div>
+      <div class="user-info">
+        <h5>Lionel Jevon</h5>
+        <p>25091397019 - Admin Medis</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button type="button" class="topbar-toggle" id="sidebarToggle" aria-label="Toggle Menu">&equiv;</button>
+        <div>
+          <div class="topbar-breadcrumb">
+            <span>MeowNesa Admin</span>
+            <span>/</span>
+            <span style="color: var(--magenta); font-weight: 700;">Dashboard Ringkasan</span>
+          </div>
+          <h1 class="topbar-title">Dashboard Utama</h1>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="topbar-date-pill">
+          <span style="color: var(--magenta);">&bull;</span>
+          <span id="liveDateText">-</span>
+        </div>
+        <button type="button" class="topbar-notif-btn" id="notifBellBtn" title="Notifikasi">
+          &#128276;
+          <span style="position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--coral);"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="banner-welcome">
+        <div>
+          <div class="banner-badge">
+            <span class="dot-pulse"></span>
+            <span>Sistem Operasional MeowNesa Aktif</span>
+          </div>
+          <h2 class="banner-title">Selamat Datang, Tim Relawan Jaga Satwa!</h2>
+          <p class="banner-desc">
+            Data populasi, feeding harian, dan antrean adopsi tersinkronisasi. Terdapat 2 pengajuan adopsi baru yang menunggu proses screening dan 1 jadwal reminder mingguan.
+          </p>
+        </div>
+        <div class="banner-actions">
+          <a href="feeding.html" class="btn-magenta">+ Catat Feeding Hari Ini</a>
+          <a href="adoptions.html" class="btn-white-outline">Screening Adopsi (2)</a>
+        </div>
+      </div>
+
+      <div class="alerts-grid">
+        <div class="alert-card sun">
+          <div>
+            <span class="alert-tag sun">ANTREAN ADOPSI</span>
+            <h4 class="alert-heading">2 Calon Adopter Baru Menunggu Verifikasi</h4>
+            <p class="alert-text">Pengajuan untuk Mochi (Reissa N.) dan Milo (Lionel J.) siap ditinjau berkasnya.</p>
+          </div>
+          <a href="adoptions.html" class="btn-alert">Screening &rarr;</a>
+        </div>
+
+        <div class="alert-card coral">
+          <div>
+            <span class="alert-tag coral">REMINDER MINGGUAN</span>
+            <h4 class="alert-heading">1 Adopter Melewati Jatuh Tempo Kabar</h4>
+            <p class="alert-text">Adopter anabul Emma sudah 8 hari belum mengirim update kondisi ke CP.</p>
+          </div>
+          <button type="button" class="btn-alert coral btn-action-wa">Kirim WA &rarr;</button>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Total Kucing</span>
+          </div>
+          <div>
+            <div class="kpi-val">8</div>
+            <span class="kpi-sub">100% Berkalung</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Siap Adopsi</span>
+          </div>
+          <div>
+            <div class="kpi-val">4</div>
+            <span class="kpi-sub magenta">Tersedia Publik</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Antrean Adopsi</span>
+          </div>
+          <div>
+            <div class="kpi-val">3</div>
+            <span class="kpi-sub magenta">2 Butuh Review</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Feeding Hari Ini</span>
+          </div>
+          <div>
+            <div class="kpi-val">8</div>
+            <span class="kpi-sub">Sore &amp; Pagi Tuntas</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Status Steril</span>
+          </div>
+          <div>
+            <div class="kpi-val">100%</div>
+            <span class="kpi-sub">Nusantara Vet</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Reminder Tempo</span>
+          </div>
+          <div>
+            <div class="kpi-val">1</div>
+            <span class="kpi-sub coral">Perlu Follow-up</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-grid">
+        <div class="panel-card">
+          <div class="panel-head">
+            <div>
+              <h3 class="panel-title">Catatan Feeding Hari Ini</h3>
+              <p class="panel-subtitle">Jadwal street feeding sore relawan Jaga Satwa UNESA</p>
+            </div>
+            <a href="feeding.html" style="font-size: 0.78rem; font-weight: 700; color: var(--magenta);">Buka Log Lengkap &rarr;</a>
+          </div>
+
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>Kucing</th>
+                <th>Lokasi Zonasi</th>
+                <th>Waktu</th>
+                <th>Menu Pakan</th>
+                <th>Kondisi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Mochi</strong></td>
+                <td>Gedung K10 Vokasi</td>
+                <td>17:15 WIB</td>
+                <td>Dry Food (100g)</td>
+                <td><span class="badge-status lahap">Lahap</span></td>
+              </tr>
+              <tr>
+                <td><strong>Milo</strong></td>
+                <td>Dermaga Danau UNESA</td>
+                <td>17:30 WIB</td>
+                <td>Wet + Dry (120g)</td>
+                <td><span class="badge-status normal">Normal</span></td>
+              </tr>
+              <tr>
+                <td><strong>Si Belang</strong></td>
+                <td>Fakultas Teknik KTT</td>
+                <td>16:45 WIB</td>
+                <td>Dry Food (80g)</td>
+                <td><span class="badge-status lahap">Lahap</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-head">
+            <div>
+              <h3 class="panel-title">Pengajuan Adopsi Terbaru</h3>
+              <p class="panel-subtitle">Calon adopter yang memerlukan tindakan verifikasi</p>
+            </div>
+            <a href="adoptions.html" style="font-size: 0.75rem; font-weight: 700; color: var(--magenta);">Semua (3) &rarr;</a>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background-color: var(--cream); border-radius: var(--radius-md);">
+              <div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <strong style="font-size: 0.85rem;">Reissa Nathania</strong>
+                  <span style="font-size: 0.68rem; font-weight: 700; background: var(--sun); color: var(--ink); padding: 1px 6px; border-radius: 4px;">ADP-00125</span>
+                </div>
+                <span style="font-size: 0.75rem; color: var(--ink-muted);">Kucing: Mochi &bull; Gayungan, Sby</span>
+              </div>
+              <a href="adoptions.html" class="btn-magenta" style="padding: 6px 14px; font-size: 0.75rem;">Review</a>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background-color: var(--cream); border-radius: var(--radius-md);">
+              <div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <strong style="font-size: 0.85rem;">Lionel Jevon</strong>
+                  <span style="font-size: 0.68rem; font-weight: 700; background: #bbf7d0; color: #166534; padding: 1px 6px; border-radius: 4px;">ADP-00108</span>
+                </div>
+                <span style="font-size: 0.75rem; color: var(--ink-muted);">Kucing: Milo &bull; Disetujui</span>
+              </div>
+              <button type="button" class="btn-alert" style="padding: 6px 14px; font-size: 0.75rem; background-color: #ecfdf5; color: #047857; border: 1px solid #a7f3d0;">Siap Antar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/admin-nav.js"></script>
+  <script src="js/dashboard.js"></script>
+
+</body>
+</html>

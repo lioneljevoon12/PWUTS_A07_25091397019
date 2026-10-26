@@ -1,0 +1,80 @@
+window.defaultHealthRecords = [
+  {
+    id: 'med-1',
+    date: '15 Sep 2026',
+    cat: 'Mochi (KTT-01)',
+    catName: 'Mochi',
+    actionType: 'Sterilisasi Betina (OH)',
+    clinic: 'Klinik Nusantara Vet',
+    doctor: 'drh. Hendra Kurniawan',
+    notes: 'Operasi steril berhasil tuntas, pemulihan pasca operasi 5 hari lancar, luka kering sempurna.',
+    recoveryStatus: 'Sembuh Total / Sehat',
+    nextControl: '-',
+    cost: 350000
+  },
+  {
+    id: 'med-2',
+    date: '18 Sep 2026',
+    cat: 'Milo (LWT-01)',
+    catName: 'Milo',
+    actionType: 'Sterilisasi Jantan (Kastrasi)',
+    clinic: 'Klinik Nusantara Vet',
+    doctor: 'drh. Hendra Kurniawan',
+    notes: 'Kastrasi jantan tuntas, kondisi fisik stabil dan nafsu makan normal.',
+    recoveryStatus: 'Sembuh Total / Sehat',
+    nextControl: '-',
+    cost: 250000
+  },
+  {
+    id: 'med-3',
+    date: '22 Sep 2026',
+    cat: 'Oyen Barbar (KTT-03)',
+    catName: 'Oyen Barbar',
+    actionType: 'Vaksinasi Tricat',
+    clinic: 'Klinik Nusantara Vet',
+    doctor: 'drh. Maya Safitri',
+    notes: 'Vaksinasi Tricat dosis booster tahunan. Suhu tubuh 38.4 C, sehat normal.',
+    recoveryStatus: 'Selesai Vaksin',
+    nextControl: '22 Sep 2027',
+    cost: 180000
+  },
+  {
+    id: 'med-4',
+    date: '28 Sep 2026',
+    cat: 'Danau (LWT-02)',
+    catName: 'Danau',
+    actionType: 'Rawat Luka Kulit',
+    clinic: 'Klinik Satwa Sehat',
+    doctor: 'drh. Arif Wibowo',
+    notes: 'Pembersihan luka lecet cakar di telinga kiri. Salep antibiotik dioleskan 2x sehari.',
+    recoveryStatus: 'Pemulihan Luka',
+    nextControl: '05 Okt 2026',
+    cost: 95000
+  },
+  {
+    id: 'med-5',
+    date: '02 Okt 2026',
+    cat: 'Kismis (LWT-06)',
+    catName: 'Kismis',
+    actionType: 'Pemberian Obat Cacing & Kutu',
+    clinic: 'Shelter Jaga Satwa',
+    doctor: 'drh. Maya Safitri',
+    notes: 'Pemberian Revolution spot-on dan tablet Drontal Cat berkala per triwulan.',
+    recoveryStatus: 'Tuntas Preventif',
+    nextControl: '02 Jan 2027',
+    cost: 120000
+  },
+  {
+    id: 'med-6',
+    date: '08 Okt 2026',
+    cat: 'Barokah (KTT-12)',
+    catName: 'Barokah',
+    actionType: 'Pemeriksaan Gigi & Mulut',
+    clinic: 'Klinik Nusantara Vet',
+    doctor: 'drh. Hendra Kurniawan',
+    notes: 'Pembersihan karang gigi ringan, gusi sehat tanpa peradangan gingivitis.',
+    recoveryStatus: 'Sehat Terawat',
+    nextControl: '-',
+    cost: 150000
+  }
+];

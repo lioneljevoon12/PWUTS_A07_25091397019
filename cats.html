@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Populasi Kucing – MeowNesa Admin | Jaga Satwa UNESA</title>
+  <link rel="icon" type="image/png" href="brand/head.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/cats.css">
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <div class="sidebar-brand-box">
+          <a href="index.html">
+            <img src="brand/wordmark-white.png" alt="MeowNesa" class="sidebar-logo" onerror="this.src='brand/wordmark.png'">
+          </a>
+          <span style="color: rgba(255,255,255,0.3); font-weight: 700; font-size: 0.75rem;">&bull;</span>
+          <span class="badge-admin-tag">ADMIN</span>
+        </div>
+      </div>
+
+      <div class="sidebar-seal">
+        <img src="brand/head-white.png" alt="Jaga Satwa" onerror="this.src='brand/head.png'">
+        <span>Komunitas Jaga Satwa UNESA</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="index.html" class="sidebar-link">
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="cats.html" class="sidebar-link active">
+            <span>Data Populasi Kucing</span>
+            <span class="sidebar-pill">8</span>
+          </a>
+        </li>
+        <li>
+          <a href="feeding.html" class="sidebar-link">
+            <span>Feeding Log Harian</span>
+            <span class="sidebar-pill">Aktif</span>
+          </a>
+        </li>
+        <li>
+          <a href="health.html" class="sidebar-link">
+            <span>Rekam Medis &amp; Klinik</span>
+          </a>
+        </li>
+        <li>
+          <a href="adoptions.html" class="sidebar-link">
+            <span>Screening Adopsi</span>
+            <span class="sidebar-pill sun">2 Baru</span>
+          </a>
+        </li>
+        <li>
+          <a href="monitoring.html" class="sidebar-link">
+            <span>Monitoring Pasca-Adopsi</span>
+            <span class="sidebar-pill coral">1 Alert</span>
+          </a>
+        </li>
+        <li>
+          <a href="cms.html" class="sidebar-link">
+            <span>CMS Artikel &amp; Edukasi</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">LJ</div>
+      <div class="user-info">
+        <h5>Lionel Jevon</h5>
+        <p>25091397019 - Admin Medis</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button type="button" class="topbar-toggle" id="sidebarToggle" aria-label="Toggle Menu">&equiv;</button>
+        <div>
+          <div class="topbar-breadcrumb">
+            <span>MeowNesa Admin</span>
+            <span>/</span>
+            <span style="color: var(--magenta); font-weight: 700;">Database Satwa UNESA &amp; Kalung Identitas</span>
+          </div>
+          <h1 class="topbar-title">Data Populasi Kucing</h1>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="topbar-date-pill">
+          <span style="color: var(--magenta);">&bull;</span>
+          <span id="liveDateText">-</span>
+        </div>
+        <button type="button" class="topbar-notif-btn" id="notifBellBtn" title="Notifikasi">
+          &#128276;
+          <span style="position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--coral);"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="banner-welcome" style="margin-bottom: 24px;">
+        <div>
+          <div class="banner-badge">
+            <span class="dot-pulse"></span>
+            <span>Manajemen Kucing Asli UNESA Terdaftar</span>
+          </div>
+          <h2 class="banner-title">Database Populasi &amp; Tagging Kalung</h2>
+          <p class="banner-desc">
+            Data kucing resmi kampus UNESA sejak 2021. Setiap anabul dilengkapi kalung reflektif anti-tabrak, rekam medis steril &amp; vaksin, serta riwayat lokasi teritorial.
+          </p>
+        </div>
+        <button type="button" class="btn-magenta" id="btnOpenAddCat">+ Tambah Kucing Baru</button>
+      </div>
+
+      <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+        <div class="kpi-card">
+          <span class="kpi-label">Total Kucing Terdata</span>
+          <div class="kpi-val">8</div>
+          <span class="kpi-sub">Populasi Kampus</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Siap Diadopsi</span>
+          <div class="kpi-val" style="color: var(--magenta);">4</div>
+          <span class="kpi-sub magenta">Tersedia Publik</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Status Tersteril</span>
+          <div class="kpi-val">100%</div>
+          <span class="kpi-sub">Nusantara Vet</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Sebaran Kampus</span>
+          <div class="kpi-val">2 Kampus</div>
+          <span class="kpi-sub">Ketintang &amp; Liwet</span>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div class="filter-bar">
+          <input type="text" id="searchCat" class="filter-input" placeholder="Cari nama, ID kalung, lokasi...">
+          
+          <select id="filterCampus" class="filter-select">
+            <option value="">Semua Kampus</option>
+            <option value="Kampus Ketintang">Kampus Ketintang</option>
+            <option value="Kampus Lidah Wetan">Kampus Lidah Wetan</option>
+          </select>
+
+          <select id="filterStatus" class="filter-select">
+            <option value="">Semua Status</option>
+            <option value="AVAILABLE">Siap Diadopsi</option>
+            <option value="ACTIVE">Terdata Aktif</option>
+          </select>
+
+          <select id="filterGender" class="filter-select">
+            <option value="">Semua Gender</option>
+            <option value="Betina">Betina</option>
+            <option value="Jantan">Jantan</option>
+          </select>
+        </div>
+
+        <div id="tableContainer" style="overflow-x: auto;">
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>Kucing</th>
+                <th>ID &amp; Kalung Reflektif</th>
+                <th>Lokasi &amp; Teritorial</th>
+                <th>Gender &amp; Usia</th>
+                <th>Status Medis</th>
+                <th>Status Adopsi</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="catsTableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modalCat" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 540px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <img src="" id="modalCatImg" alt="" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--magenta);">
+          <div>
+            <span id="modalCatTag" class="tag-id" style="font-size: 0.8rem; background-color: var(--magenta-50); color: var(--magenta); padding: 2px 8px; border-radius: 4px;">KTT-01</span>
+            <h3 id="modalCatName" style="font-family: var(--font-display); font-size: 1.4rem; color: var(--ink); margin-top: 2px;">Nama Kucing</h3>
+          </div>
+        </div>
+        <button type="button" id="closeModalCat" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.82rem; margin-bottom: 14px;">
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Kampus:</span>
+          <strong id="modalCatCampus">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Lokasi Teritorial:</span>
+          <strong id="modalCatLocation">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Kalung Identitas:</span>
+          <strong id="modalCatCollar">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Gender / Usia:</span>
+          <strong id="modalCatGender">-</strong>, <span id="modalCatAge">-</span>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Status Steril:</span>
+          <strong id="modalCatSteril" style="color: var(--emerald);">-</strong>
+        </div>
+        <div>
+          <span style="color: var(--ink-muted); font-size: 0.72rem; display: block;">Status Vaksin:</span>
+          <strong id="modalCatVaccine">-</strong>
+        </div>
+      </div>
+
+      <div style="background-color: var(--cream); padding: 12px; border-radius: var(--radius-md); font-size: 0.82rem; margin-bottom: 18px;">
+        <span style="color: var(--ink-muted); font-size: 0.72rem; display: block; margin-bottom: 4px;">Deskripsi Karakter:</span>
+        <p id="modalCatDesc" style="color: var(--ink);">-</p>
+      </div>
+
+      <div style="text-align: right;">
+        <button type="button" class="btn-magenta" id="btnCloseModalCat">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalEditCat" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 580px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px; max-height: 90vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <h3 id="modalFormCatTitle" style="font-family: var(--font-display); font-size: 1.3rem; color: var(--ink);">Ubah Data Kucing Kampus</h3>
+        <button type="button" id="closeModalEditCat" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <form id="formEditCat" novalidate>
+        <input type="hidden" id="editCatId">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nama Kucing *</label>
+            <input type="text" id="editCatName" class="form-control">
+            <div class="field-error" id="errCatName"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kode Tag (ID Kalung) *</label>
+            <input type="text" id="editCatTag" class="form-control">
+            <div class="field-error" id="errCatTag"></div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Kampus *</label>
+            <select id="editCatCampus" class="form-control">
+              <option value="Kampus Ketintang">Kampus Ketintang</option>
+              <option value="Kampus Lidah Wetan">Kampus Lidah Wetan</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Lokasi Teritorial *</label>
+            <input type="text" id="editCatLocation" class="form-control">
+            <div class="field-error" id="errCatLocation"></div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Warna Kalung Reflektif *</label>
+            <input type="text" id="editCatCollar" class="form-control">
+            <div class="field-error" id="errCatCollar"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Gender *</label>
+            <select id="editCatGender" class="form-control">
+              <option value="Betina">Betina</option>
+              <option value="Jantan">Jantan</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Perkiraan Usia *</label>
+            <input type="text" id="editCatAge" class="form-control" placeholder="Contoh: 2 Tahun">
+            <div class="field-error" id="errCatAge"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status Steril *</label>
+            <select id="editCatSteril" class="form-control">
+              <option value="Sudah Steril">Sudah Steril</option>
+              <option value="Belum Steril">Belum Steril</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Status Vaksinasi *</label>
+            <input type="text" id="editCatVaccine" class="form-control">
+            <div class="field-error" id="errCatVaccine"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status Adopsi *</label>
+            <select id="editCatStatus" class="form-control">
+              <option value="AVAILABLE">SIAP DIADOPSI</option>
+              <option value="ACTIVE">TERDATA AKTIF</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Deskripsi Karakter *</label>
+          <textarea id="editCatDesc" class="form-control" rows="2"></textarea>
+          <div class="field-error" id="errCatDesc"></div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px;">
+          <button type="button" class="btn-white-outline" id="btnCancelEditCat">Batal</button>
+          <button type="submit" class="btn-magenta">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data-kucing.js"></script>
+  <script src="js/admin-nav.js"></script>
+  <script src="js/cats.js"></script>
+
+</body>
+</html>

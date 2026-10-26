@@ -1,0 +1,234 @@
+.banner-welcome {
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 60%, var(--magenta-50) 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  padding: 30px 36px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background-color: var(--magenta-50);
+  border: 1px solid rgba(179, 24, 79, 0.2);
+  color: var(--magenta);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--emerald);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.6); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(5, 150, 105, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+}
+
+.banner-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.banner-desc {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  max-width: 650px;
+  line-height: 1.55;
+}
+
+.banner-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.alerts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.alert-card {
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-card.sun {
+  background-color: rgba(255, 197, 61, 0.16);
+  border: 1px solid rgba(255, 197, 61, 0.45);
+}
+
+.alert-card.coral {
+  background-color: rgba(228, 87, 46, 0.12);
+  border: 1px solid rgba(228, 87, 46, 0.35);
+}
+
+.alert-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+}
+
+.alert-tag.sun {
+  color: var(--ink);
+}
+
+.alert-tag.coral {
+  color: var(--coral);
+}
+
+.alert-heading {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 2px;
+}
+
+.alert-text {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+.btn-alert {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background-color: #ffffff;
+  color: var(--ink);
+  transition: all 0.2s;
+}
+
+.btn-alert:hover {
+  background-color: var(--magenta);
+  color: #ffffff;
+}
+
+.btn-alert.coral {
+  background-color: var(--coral);
+  color: #ffffff;
+  border: none;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.kpi-card {
+  background-color: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.kpi-card:hover {
+  border-color: rgba(179, 24, 79, 0.4);
+  transform: translateY(-2px);
+}
+
+.kpi-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kpi-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.kpi-val {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-top: 10px;
+}
+
+.kpi-sub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--emerald);
+  display: block;
+}
+
+.kpi-sub.magenta {
+  color: var(--magenta);
+}
+
+.kpi-sub.coral {
+  color: var(--coral);
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1.2fr;
+  gap: 20px;
+}
+
+@media (max-width: 1180px) {
+  .kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .banner-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .alerts-grid {
+    grid-template-columns: 1fr;
+  }
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

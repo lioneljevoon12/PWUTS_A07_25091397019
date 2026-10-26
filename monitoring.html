@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitoring Pasca-Adopsi – MeowNesa Admin | Jaga Satwa UNESA</title>
+  <link rel="icon" type="image/png" href="brand/head.png">
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <div class="sidebar-brand-box">
+          <a href="index.html">
+            <img src="brand/wordmark-white.png" alt="MeowNesa" class="sidebar-logo" onerror="this.src='brand/wordmark.png'">
+          </a>
+          <span style="color: rgba(255,255,255,0.3); font-weight: 700; font-size: 0.75rem;">&bull;</span>
+          <span class="badge-admin-tag">ADMIN</span>
+        </div>
+      </div>
+
+      <div class="sidebar-seal">
+        <img src="brand/head-white.png" alt="Jaga Satwa" onerror="this.src='brand/head.png'">
+        <span>Komunitas Jaga Satwa UNESA</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="index.html" class="sidebar-link">
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="cats.html" class="sidebar-link">
+            <span>Data Populasi Kucing</span>
+            <span class="sidebar-pill">8</span>
+          </a>
+        </li>
+        <li>
+          <a href="feeding.html" class="sidebar-link">
+            <span>Feeding Log Harian</span>
+            <span class="sidebar-pill">Aktif</span>
+          </a>
+        </li>
+        <li>
+          <a href="health.html" class="sidebar-link">
+            <span>Rekam Medis &amp; Klinik</span>
+          </a>
+        </li>
+        <li>
+          <a href="adoptions.html" class="sidebar-link">
+            <span>Screening Adopsi</span>
+            <span class="sidebar-pill sun">2 Baru</span>
+          </a>
+        </li>
+        <li>
+          <a href="monitoring.html" class="sidebar-link active">
+            <span>Monitoring Pasca-Adopsi</span>
+            <span class="sidebar-pill coral">1 Alert</span>
+          </a>
+        </li>
+        <li>
+          <a href="cms.html" class="sidebar-link">
+            <span>CMS Artikel &amp; Edukasi</span>
+          </a>
+        </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">LJ</div>
+      <div class="user-info">
+        <h5>Lionel Jevon</h5>
+        <p>25091397019 - Admin Medis</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button type="button" class="topbar-toggle" id="sidebarToggle" aria-label="Toggle Menu">&equiv;</button>
+        <div>
+          <div class="topbar-breadcrumb">
+            <span>MeowNesa Admin</span>
+            <span>/</span>
+            <span style="color: var(--magenta); font-weight: 700;">Laporan Kabar Berkala Adopter</span>
+          </div>
+          <h1 class="topbar-title">Monitoring Pasca-Adopsi</h1>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="topbar-date-pill">
+          <span style="color: var(--magenta);">&bull;</span>
+          <span id="liveDateText">-</span>
+        </div>
+        <button type="button" class="topbar-notif-btn" id="notifBellBtn" title="Notifikasi">
+          &#128276;
+          <span style="position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--coral);"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="banner-welcome" style="margin-bottom: 24px;">
+        <div>
+          <div class="banner-badge">
+            <span class="dot-pulse"></span>
+            <span>Kewajiban Laporan 3 Bulan Pertama</span>
+          </div>
+          <h2 class="banner-title">Evaluasi Kondisi Anabul Bersama Adopter</h2>
+          <p class="banner-desc">
+            Sistem pengawasan berkala memastikan anabul terawat dengan baik, mendapatkan nutrisi cukup, dan beradaptasi sempurna di tempat tinggal baru.
+          </p>
+        </div>
+        <button type="button" class="btn-magenta" id="btnOpenAddMon">+ Input Laporan Monitoring</button>
+      </div>
+
+      <div class="panel-card">
+        <div class="filter-bar">
+          <input type="text" id="searchMon" class="filter-input" placeholder="Cari nama kucing, adopter, status...">
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>Kucing</th>
+                <th>Nama Adopter</th>
+                <th>Tanggal Adopsi</th>
+                <th>Laporan Terakhir</th>
+                <th>Status Jatuh Tempo</th>
+                <th>Kondisi Laporan</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="monitoringTableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modalDetailMon" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 500px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <div>
+          <span id="modalMonId" style="font-size: 0.75rem; font-weight: 800; background: var(--magenta-50); color: var(--magenta); padding: 2px 8px; border-radius: 4px;">-</span>
+          <h3 id="modalMonCat" style="font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); margin-top: 2px;">Nama Kucing</h3>
+        </div>
+        <button type="button" id="closeDetailMon" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; margin-bottom: 16px;">
+        <div>Adopter: <strong id="modalMonAdopter">-</strong></div>
+        <div>Kontak: <strong id="modalMonPhone">-</strong></div>
+        <div>Tanggal Adopsi: <strong id="modalMonDateAdopt">-</strong></div>
+        <div>Laporan Terakhir: <strong id="modalMonLastUpdate">-</strong></div>
+        <div>Status Jatuh Tempo: <strong id="modalMonStatus">-</strong></div>
+        <div>Kondisi: <strong id="modalMonCondition" style="color: var(--emerald);">-</strong></div>
+        <div style="background: var(--cream); padding: 10px; border-radius: var(--radius-sm); margin-top: 6px;">
+          <span style="display: block; font-size: 0.72rem; color: var(--ink-muted);">Catatan Terakhir:</span>
+          <span id="modalMonNotes">-</span>
+        </div>
+      </div>
+
+      <div style="text-align: right;">
+        <button type="button" class="btn-magenta" id="btnCloseDetailMon">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalEditMon" style="display: none;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-xl); max-width: 540px; width: 100%; padding: 28px; box-shadow: var(--shadow-highlight); position: relative; margin: 20px; max-height: 90vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        <h3 id="modalMonFormTitle" style="font-family: var(--font-display); font-size: 1.3rem; color: var(--ink);">Input Laporan Monitoring Baru</h3>
+        <button type="button" id="closeModalEditMon" style="background: none; border: none; font-size: 1.5rem; color: var(--ink-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <form id="formEditMon" novalidate style="display: flex; flex-direction: column; gap: 12px; font-size: 0.82rem;">
+        <input type="hidden" id="editMonId">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Nama Kucing *</label>
+            <input type="text" id="editMonCatName" class="filter-input" style="width: 100%;">
+            <div class="field-error" id="errMonCat"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Nama Adopter *</label>
+            <input type="text" id="editMonAdopter" class="filter-input" style="width: 100%;">
+            <div class="field-error" id="errMonAdopter"></div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">No WhatsApp / Telepon *</label>
+            <input type="text" id="editMonPhone" class="filter-input" style="width: 100%;" placeholder="08xxxxxxxxxx">
+            <div class="field-error" id="errMonPhone"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Status Jatuh Tempo</label>
+            <select id="editMonStatus" class="filter-select" style="width: 100%;">
+              <option value="Tepat Waktu">Tepat Waktu</option>
+              <option value="Terlambat (3 hari)">Terlambat (3 hari)</option>
+              <option value="Terlambat (8 hari)">Terlambat (8 hari)</option>
+              <option value="Butuh Visitasi">Butuh Visitasi</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Tanggal Adopsi *</label>
+            <input type="date" id="editMonDateAdopt" class="filter-input" style="width: 100%; padding: 8px 12px;">
+            <div class="field-error" id="errMonDateAdopt"></div>
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">Laporan Terakhir *</label>
+            <input type="date" id="editMonLastUpdate" class="filter-input" style="width: 100%; padding: 8px 12px;">
+            <div class="field-error" id="errMonLastUpdate"></div>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-weight: 700; display: block; margin-bottom: 4px;">Kondisi Laporan</label>
+          <select id="editMonCondition" class="filter-select" style="width: 100%;">
+            <option value="Sehat & Aktif">Sehat &amp; Aktif</option>
+            <option value="Adaptasi Bagus">Adaptasi Bagus</option>
+            <option value="Perlu Follow-up">Perlu Follow-up</option>
+            <option value="Sakit / Perlu Obat">Sakit / Perlu Obat</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-weight: 700; display: block; margin-bottom: 4px;">Catatan Hasil Monitoring *</label>
+          <textarea id="editMonNotes" class="filter-input" rows="2" style="width: 100%;" placeholder="Catatan kondisi fisik anabul, nafsu makan, sosialisasi..."></textarea>
+          <div class="field-error" id="errMonNotes"></div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px;">
+          <button type="button" class="btn-white-outline" id="btnCancelEditMon">Batal</button>
+          <button type="submit" class="btn-magenta">Simpan Laporan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data-monitoring.js"></script>
+  <script src="js/admin-nav.js"></script>
+  <script src="js/monitoring.js"></script>
+
+</body>
+</html>
