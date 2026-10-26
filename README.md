@@ -5,7 +5,6 @@
 - Nama: Lionel Jevon Chrismana Putra
 - NIM: 25091397019
 - Kelompok: A07
-- Folder repository: `PWUTS_A07_25091397019`
 
 ## Tentang Proyek
 
@@ -107,3 +106,6 @@ Ketiga bagian tersebut merupakan bagian dari pengerjaan modul admin untuk UTS Pe
 - JavaScript
 - jQuery 3.7.1
 - Google Fonts: Baloo 2 dan Plus Jakarta Sans
+
+## Live Website
+https://lioneljevoon12.github.io/PWUTS_A07_25091397019/index.html
